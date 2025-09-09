@@ -1,0 +1,497 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "roboto";
+    background-color: #010101;
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+/* navbar */
+.navbar{
+    width: 100%;
+    padding: 1.5em 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #070F2B;
+    border-bottom: #9290C3 solid 1px;
+}
+.navbar .brand h3 a{
+    font-size: 1.5em;
+    color: white;
+    transition: all ease-in-out .3s;
+}
+.navbar .brand h3 a span{
+    color: #9290C3;
+}
+.navbar .brand h3:hover a{
+    color: #9290C3;
+}
+.navbar .brand h3:hover a span{
+    color: white;
+    transition: all ease-in-out .3s;
+}
+.navbar .nav-list ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 0 2em;
+}
+.navbar .nav-list ul li a{
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+    font-size: 18px;
+    color: #dadada;
+    font-weight: 500;
+    transition: all ease-in .4s;
+}
+.navbar .nav-list ul li a:hover{
+    color: #070F2B;
+    background-color: #9290C3 ;
+}
+#menu{
+    color: #dadada;
+    display: none;
+    transition: all ease-out .3s;
+}
+#menu:hover{
+    color: #9290C3;
+}
+
+
+/* BERANDA */
+.beranda{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../asset/img/sunset-1373171_1920.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+}
+.beranda article {
+    margin: 80px auto;
+}
+.beranda article img{
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    margin: 180px 0 15px;
+    box-shadow: 3px 4px 7px rgba(0, 0, 0, .7);
+}
+.beranda article h3{
+    font-size: 2em;
+    font-weight: 800;
+    color: #070F2B;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+.beranda article p{
+    color: #070F2B;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+/* TENTANG SAYA */
+.tentang{
+    display: flex;
+    margin: 70px 0;
+    padding: 50px;
+    gap: 0 20px;
+    max-height: 100vh;
+}
+.tentang article{
+    text-align: center;
+    padding: 50px;
+    color: #fff;
+    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
+}
+.tentang article h1{
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: 700;
+}
+.tentang article p{
+    font-weight: 100;
+}
+
+.tentang aside{
+    padding: 50px;
+    color: #fff;
+    background-color: #010101;
+    border-radius: 7px;
+    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
+}
+.tentang aside img{
+    width: 400px;
+    margin-bottom: 20px ;
+    border-radius: 5px;
+}
+.tentang aside .content{
+    width: fit-content;
+    margin: 0 auto;
+   
+}
+.tentang aside .content p{
+    margin-bottom: 10px;
+} 
+
+
+/* GALERI */
+.galeri{
+   margin: 250px 0;
+   max-height: 100vh;
+}
+.galeri h1{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.galeri .wrap{
+    background-color: rgba(0, 0, 0, 0.336);
+    width: max-content;
+    display: grid;
+    grid-template-areas: "1 2 3";
+    gap: 10px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+.galeri .wrap img[alt= "thumbnail"]{
+    transition: all ease-in-out .3s;
+}
+.galeri .wrap img[alt= "thumbnail"]:hover{
+    transform: scale(1.1);
+}
+
+.galeri .gambar .layer{
+    position: fixed;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    
+    z-index: 99999;
+    transition: 0.8s;
+    padding-top:60px;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+}
+.galeri .gambar .layer:target{
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0.8)
+        );
+    }
+    
+.galeri .gambar .layer:target img{
+    width: 500px;
+    padding: 55px 0;
+    animation: anigambar 1.5s !important;
+    justify-self: center;
+} 
+.galeri .gambar .layer:target a{
+    position: absolute;
+    right: 450px;
+    top: 80px;
+    font-size: 20px;
+    color: bisque;
+    text-shadow: 2px 2px 3px rgba(245, 245, 245, 0.8);
+    animation: close 1.5s !important;
+    transition: all ease-out .3s;
+} 
+.galeri .gambar .layer:target a:hover{
+    transform: scale(1.5);
+}
+.galeri .gambar .layer:target a.previous{
+    position: absolute;
+    left: -150px;
+    top: 300px;
+    font-size: 20px;
+    color: bisque;
+    text-shadow: 2px 2px 3px rgba(245, 245, 245, 0.8);
+    animation: close 1.5s !important;
+} 
+.galeri .gambar .layer:target a.next{
+    position: absolute;
+    right: 450px;
+    top: 300px;
+    font-size: 20px;
+    color: bisque;
+    text-shadow: 2px 2px 3px rgba(245, 245, 245, 0.8);
+    animation: close 1.5s !important;
+} 
+
+/* KONTAK */
+.kontak{
+    margin-bottom: 100px;
+}
+.kontak h1{
+    color: white;
+    text-align: center;
+}
+.kontak .row {
+    display: flex;
+    margin-top: 2.5rem;
+    background-color: #222;
+    padding: 15px;
+}
+.kontak .row .map {
+    flex: 1 1 25px;
+    width: 100%;
+    object-fit: cover;
+}
+.kontak .row form {
+    flex: 1 1 25px;
+    text-align: center;
+    padding: 0 32px;
+}
+.kontak .row form .input-grup {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    background-color:#010101 ;
+    border: 1px solid #eee;
+    padding-left: 16px;
+}
+.kontak .row form .input-grup i{
+    color: #fff !important;
+}
+.kontak .row form .input-grup input,
+.kontak .row form .input-grup textarea {
+    width: 100%;
+    padding: 26px;
+    font-size: 20px;
+    background: none;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+.kontak .row form .tombol {
+    margin-top: 18px;
+    padding: 15px 35px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #9290C3;
+    cursor: pointer;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.7);
+    transition: all ease-in-out .3s;
+  }
+.kontak .row form .tombol:hover{
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #9290C3; 
+}
+
+/* FOOTER */
+footer{
+    margin-top: 100px;
+    background-color: #070F2B;
+    border-top:  #9290C3 solid 1px ;
+    padding: 24px;
+    text-align: center;
+}
+footer .sosialMedia{
+    margin-bottom: 13px;
+}
+footer .sosialMedia a{
+   margin: 0 10px;
+   color: #fff;
+   transition: all ease-in .3s;
+}
+footer .sosialMedia a:hover{
+   color: #9290C3;
+}
+
+/* PARALLAX EFFECT */
+.beranda article{
+    opacity: 0;
+    transform: scale(0);
+    transition: all ease-in-out .5s;
+}
+.beranda .articleBeranda.popUp{
+    opacity: 1;
+    transform: scale(1);
+}
+.gambar  .thumbnail{
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: all ease-in .2s;
+}
+.gambar  .thumbnail.muncul{
+    opacity: 1;
+    transform: translateY(0);
+}
+.tentang .article{
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all ease-in .2s;
+}
+.tentang .article.kiri{
+    opacity: 1;
+    transform: translateX(0);
+}
+.tentang .aside{
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all ease-in .2s;
+}
+.tentang .aside.kanan{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Responsive */
+@media only screen and (max-width: 992px){
+    html{
+        font-size: 75%;
+    }
+
+    .beranda article {
+        margin: 50px auto;
+    }
+
+    .galeri .wrap{
+        grid-template-areas: "1 1";
+        justify-content: center;
+        width: 300px;
+    }
+    .galeri .wrap img[alt= "thumbnail"]{
+        width: 100%;
+    }
+    .galeri .gambar .layer:target img{
+        width: 300px;
+    }
+}
+@media only screen and (max-width: 758px){
+    html {
+        font-size: 65%;
+    }
+    #menu{
+        display: inline-block;
+    }
+    .navbar .nav-list .nav-items{
+        position: absolute;
+        top: 103%;
+        right: -100%;
+        width: 30rem;
+        height: 100vh;
+        background-color: #070F2B;
+        transition: 0.3s ease-out;
+    }
+    .navbar .nav-list .nav-items.active{
+        right: 0;
+        padding: 2rem;
+        display: block;
+        text-align: center;
+    }
+    .navbar .nav-list .nav-items.active li {
+        margin: 4rem 0;
+    }
+
+    /* BERANDA */
+    .beranda{
+        height: 100vh;
+    }
+
+    .beranda article {
+        margin: 50px auto;
+    }
+    .beranda article img{
+        width: 250px;
+        height: 250px;
+    }
+
+    /* TENTANG SAYA */
+    .tentang {
+        flex-wrap: wrap;
+        gap: 20px 0;
+    }
+
+    .tentang article {
+        text-align: left;
+    }
+    .tentang aside img{
+        width: 100%;
+    } 
+
+    /* GALERI */
+    .galeri .wrap{
+        grid-template-areas: "1 1";
+        justify-content: center;
+        width: 300px;
+    }
+    .galeri .wrap img[alt= "thumbnail"]{
+        width: 100%;
+    }
+    .galeri .gambar .layer:target img{
+        width: 300px;
+    }
+    .galeri .gambar .layer:target a{
+        right: 50px;
+        top: 80px;
+    } 
+    .galeri .gambar .layer:target a.previous{
+        left: -150px;
+        top: 400px;
+    } 
+    .galeri .gambar .layer:target a.next{
+        right: 90px;
+        top: 400px;
+    } 
+
+    /* KONTAK */
+    .kontak .row {
+        flex-direction: column;
+    }
+    .kontak .row form .input-grup input,
+    .kontak .row form .input-grup textarea {
+        padding: 16px;
+        font-size: 15px;
+    }
+}
+
+/* animation */
+@keyframes anigambar {
+    0% {
+      opacity: 0;
+      transform: translate(0, -50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  
+  @keyframes close {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
